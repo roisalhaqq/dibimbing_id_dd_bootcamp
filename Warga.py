@@ -5,3 +5,6 @@ class Warga():
     def nyoblos(self, pilihan: str):
         self.pilihan = pilihan
         print(f"{self.nik} memilih {pilihan}")
+
+    def ambil_pinjol(self, jumlah):
+        print(f"{self.nik} ambil pinjol sebanyak {jumlah}")
