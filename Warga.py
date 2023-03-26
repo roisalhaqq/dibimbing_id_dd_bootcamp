@@ -8,3 +8,6 @@ class Warga():
 
     def ambil_pinjol(self, jumlah):
         print(f"{self.nik} ambil pinjol sebanyak {jumlah}")
+
+    def beli_takjil(self, takjil):
+        print(f"beli {takjil}")
