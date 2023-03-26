@@ -11,6 +11,3 @@ class Warga():
 
     def beli_takjil(self, takjil):
         print(f"beli {takjil}")
-
-    def buka_puasa(self, takjil):
-        print(f"buka puasa pake {takjil}")
