@@ -11,3 +11,7 @@ class Warga():
 
     def beli_takjil(self, takjil):
         print(f"beli {takjil}")
+
+    auth = "aqweqweqw"
+
+    
