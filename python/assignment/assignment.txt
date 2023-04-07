@@ -1,0 +1,164 @@
+Get https://ibnux.github.io/BMKG-importer/cuaca/wilayah.json
+Looping get only 1. C where propinsi = 
+Get id
+https://ibnux.github.io/BMKG-importer/cuaca/<<id_wilayah>>.json
+
+Create a program to pull the data from API and store it in your local directory.
+Endpoint to pull
+https://ibnux.github.io/BMKG-importer/cuaca/<<id_wilayah>>.json
+Get id wilayah from << id >> https://ibnux.github.io/BMKG-importer/cuaca/wilayah.json
+Pull only wilayah from the below province
+DKIJakarta
+DIYogyakarta
+JawaBarat
+Bali
+KalimantanSelatan
+Store the data in your local directory with format path
+<< local path >>/ << propinsi >>/ << kota >>/<< date >>.json
+For example
+<< local path >>/DKIJakarta/Kota_Jakarta_Timur/20230328.json
+<< local path >>/DKIJakarta/Kota_Jakarta_Timur/20230329.json
+<< local path >>/DKIJakarta/Kota_Jakarta_Timur/20230330.json
+<< local path >>/DKIJakarta/Kota_Jakarta_Timur/20230331.json
+<< local path >>/DKIJakarta/Kota_Jakarta_Barat/20230328.json
+<< local path >>/DKIJakarta/Kota_Jakarta_Barat/20230329.json
+<< local path >>/DKIJakarta/Kota_Jakarta_Barat/20230330.json
+<< local path >>/DKIJakarta/Kota_Jakarta_Barat/20230331.json
+Each json files contain weather information on that day with hourly details
+jamCuaca
+kodeCuaca
+cuaca
+Execute your program on two different days, for example
+First execution, 30 March 2023
+For initial load, get all
+Second execution, 31 March 2023
+For updater, get latest or data not contain in current directory
+The program should implement OOP concept
+
+Don’t ask me for guidance. Ask stackoverflow
+Essential skill for data professional
+You can ask me for keywords to put in google though :)
+Anyway I am joking, but you get the point. Now ask away!
+
+
+
+
+
+
+
+
+
+
+
+Example code of api caller:
+api_caller.py
+import requests
+import json
+
+
+wilayah_url = "https://ibnux.github.io/BMKG-importer/cuaca/wilayah.json"
+response_wilayah = requests.get(wilayah_url)
+response_wilayah_json = json.loads(response_wilayah.text)
+print(response_wilayah_json)
+[
+    {
+        "id": "501397",
+        "propinsi": "Aceh",
+        "kota": "Kota Banda Aceh",
+        "kecamatan": "Banda Aceh",
+        "lat": "5.544910",
+        "lon": "95.343120"
+    },
+    {
+        "id": "501398",
+        "propinsi": "Aceh",
+        "kota": "Kab. Bireuen",
+        "kecamatan": "Bireun",
+        "lat": "5.230000",
+        "lon": "96.720000"
+    },
+    {
+        "id": "5002216",
+        "propinsi": "SumateraUtara",
+        "kota": "Kab. Nias Barat",
+        "kecamatan": "Lahomi",
+        "lat": "1.006571",
+        "lon": "97.463837"
+    }
+]
+
+
+import requests
+import json
+cuaca_detail_url = "https://ibnux.github.io/BMKG-importer/cuaca/5002229.json"
+response_cuaca = requests.get(cuaca_detail_url)
+response_cuaca_json = json.loads(response_cuaca.text)
+print(response_cuaca_json)
+
+[
+   {
+       "jamCuaca": "2023-03-24 00:00:00",
+       "kodeCuaca": "1",
+       "cuaca": "Cerah Berawan",
+       "humidity": "90",
+       "tempC": "24",
+       "tempF": "75"
+   },
+   {
+       "jamCuaca": "2023-03-24 06:00:00",
+       "kodeCuaca": "61",
+       "cuaca": "Hujan Sedang",
+       "humidity": "75",
+       "tempC": "32",
+       "tempF": "90"
+   },
+   {
+       "jamCuaca": "2023-03-24 12:00:00",
+       "kodeCuaca": "60",
+       "cuaca": "Hujan Ringan",
+       "humidity": "95",
+       "tempC": "22",
+       "tempF": "72"
+   },
+   {
+       "jamCuaca": "2023-03-24 18:00:00",
+       "kodeCuaca": "3",
+       "cuaca": "Berawan",
+       "humidity": "95",
+       "tempC": "23",
+       "tempF": "73"
+   },
+   {
+       "jamCuaca": "2023-03-25 00:00:00",
+       "kodeCuaca": "60",
+       "cuaca": "Hujan Ringan",
+       "humidity": "85",
+       "tempC": "24",
+       "tempF": "75"
+   },
+   {
+       "jamCuaca": "2023-03-25 06:00:00",
+       "kodeCuaca": "1",
+       "cuaca": "Cerah Berawan",
+       "humidity": "90",
+       "tempC": "31",
+       "tempF": "88"
+   },
+   {
+       "jamCuaca": "2023-03-25 12:00:00",
+       "kodeCuaca": "60",
+       "cuaca": "Hujan Ringan",
+       "humidity": "90",
+       "tempC": "26",
+       "tempF": "79"
+   },
+   {
+       "jamCuaca": "2023-03-25 18:00:00",
+       "kodeCuaca": "3",
+       "cuaca": "Berawan",
+       "humidity": "95",
+       "tempC": "23",
+       "tempF": "73"
+   }
+]
+

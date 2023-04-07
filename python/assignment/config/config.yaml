@@ -1,0 +1,8 @@
+bmkg_weather:
+  api_base_url: https://ibnux.github.io/BMKG-importer/cuaca
+  whitelist_propinsi:
+    - DKIJakarta
+    - DIYogyakarta
+    - JawaBarat
+    - Bali
+    - KalimantanSelatan
